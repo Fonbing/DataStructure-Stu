@@ -12,6 +12,14 @@ public class LinkList implements IList {
 
     private Node head;   //单链表的头指针---注意：之所以为结点类型，头指针存放的是下一个结点（头结点）
 
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
     public LinkList() {
         head = new Node();  //初始化头结点
     }
@@ -83,8 +91,8 @@ public class LinkList implements IList {
             ++j;
         }*/
         int j = -1;
-        Node p = head;                       //要从头结点开始算起，考虑插入位置位置为0的情况
-        while (p != null && j < i - 1) {
+        Node p = head;
+        while (p != null && j < i - 1) {          //要从头结点开始算起，考虑插入位置位置为0的情况
             p = p.getNext();
             ++j;
         }
@@ -112,7 +120,7 @@ public class LinkList implements IList {
     public int indexOf(Object x) {
         int i = 0;
         Node p = head.getNext();
-        while (p != null && p.getData().equals(x)) {
+        while (p != null && !p.getData().equals(x)) {
             p = p.getNext();
             ++i;
         }
@@ -125,7 +133,7 @@ public class LinkList implements IList {
     public void display() {
         Node node = head.getNext();
         while (node != null) {
-            System.out.println(node.getData().toString());
+            System.out.print(node.getData().toString() + "\t");
             node = node.getNext();
         }
         System.out.println();
