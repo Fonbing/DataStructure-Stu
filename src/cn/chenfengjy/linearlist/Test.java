@@ -9,7 +9,7 @@ import cn.chenfengjy.linearlist.linklist.Node;
  * 1. 编写程序实现：建立一个单链表，然后删除单链表中“多余”的结点，
  * 即使操作之后的单链表中只留下不相同的结点，最后输出删除后的单链表中所有结点。
  */
-public class Test {
+class Test {
     public static void main(String[] args) throws Exception {
         LinkList ll = new LinkList(5, false);
         System.out.println("移除前");
@@ -48,3 +48,4 @@ public class Test {
         }
     }
 }
+
