@@ -10,8 +10,8 @@ import cn.chenfengjy.linearlist.linklist.Node;
  */
 public class Test_2 {
     public static void main(String[] args) throws Exception {
-        LinkList la = new LinkList(4, false);
-        LinkList lb = new LinkList(5, false);
+        LinkList la = new LinkList(3, false);;
+        LinkList lb = new LinkList(4, false);
         la = mergeList_L2(la, lb);
         System.out.println("合并后的链表为：");
         la.display();
@@ -27,21 +27,23 @@ public class Test_2 {
         return null;
     }*/
 
-    private static LinkList mergeList_L2(LinkList LA, LinkList LB) {
+    //重新写一遍!!!!!!!
+    private static LinkList mergeList_L2(LinkList LA, LinkList LB) {   //注意：此后的操作都是修改的其地址
         Node pa = LA.getHead().getNext();
         Node pb = LB.getHead().getNext();
-        Node pc = LA.getHead();
+        Node pc = LA.getHead();             // 起到临时存储的作用
         int da, db;   // 结点值所对应的浮点数
         while (pa != null && pb != null) {
             da = Integer.valueOf(pa.getData().toString());
             db = Integer.valueOf(pb.getData().toString());
             if (da <= db) {
-                pc.setNext(pa);
-                pc = pa;
+                pc.setNext(pa);             // pc总是要比pa完一个节点
+                pc = pa;                  //修改完之后将pc的结点后移，相当于 pc = pc.getNext();
                 pa = pa.getNext();
             } else {
                 pc.setNext(pb);
-                pc = pb;
+                //   pc = pc.getNext();     //pc = pb;
+                pc = pb;                 //pc总是要比pb完一个节点
                 pb = pb.getNext();
             }
         }

@@ -25,7 +25,7 @@ class Test {
             for (int j = i + 1; j < ll.length(); j++) {
                 if (temp.equals(ll.get(j))) {
                     ll.remove(j);
-                    j--;
+                    j--;         //移除后，后面的元素会往前移，保证下一次要遍历到前移的元素
                 }
             }
         }
